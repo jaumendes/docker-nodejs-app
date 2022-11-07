@@ -3,7 +3,14 @@ version: "3.3"
 services:
   my_app:
     ports:
-      - 3000:3000
+      - 3000-3005:3000
     build:
       context: ./
       dockerfile: Dockerfile
+  app:
+    build: app
+  
+  proxy:
+    build: proxy
+    ports:
+      - "80:80"
